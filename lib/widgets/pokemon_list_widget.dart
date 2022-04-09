@@ -45,6 +45,7 @@ class _PokemonListState extends State<PokemonList> {
                 pokemon: _listem[index],
               );
             },
+            itemCount: _listem.length,
           );
         } else if (snapshot.hasError) {
           return Center(

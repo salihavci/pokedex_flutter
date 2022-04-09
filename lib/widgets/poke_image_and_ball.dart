@@ -1,14 +1,39 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_flutter/constants/ui_helper.dart';
+import 'package:pokedex_flutter/model/pokemon_model.dart';
 
 class PokeImageAndBall extends StatelessWidget {
-  const PokeImageAndBall({Key? key}) : super(key: key);
+  final PokemonModel pokemon;
+  const PokeImageAndBall({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String pokeballImageUrl = 'images/pokeball.png';
     return Stack(
       children: [
-        Image.asset(pokeballImageUrl),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Image.asset(
+            pokeballImageUrl,
+            width: UIHelper.calculatePokeImgAndBallSize(),
+            height: UIHelper.calculatePokeImgAndBallSize(),
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: CachedNetworkImage(
+            imageUrl: pokemon.img ?? '',
+            width: UIHelper.calculatePokeImgAndBallSize(),
+            height: UIHelper.calculatePokeImgAndBallSize(),
+            fit: BoxFit.fitHeight,
+            errorWidget: (context, url, error) => const Icon(Icons.ac_unit),
+            placeholder: (context, url) => CircularProgressIndicator(
+              color: UIHelper.getColorFromType(pokemon.type![0]),
+            ),
+          ),
+        ),
       ],
     );
   }

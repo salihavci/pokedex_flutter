@@ -16,7 +16,7 @@ class Constants {
     return TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: _calculateFontSize(30),
+      fontSize: _calculateFontSize(22),
     );
   }
 
