@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     PokeApi.getPokemonData();
     return ScreenUtilInit(
-      designSize: const Size(412, 732),
+      designSize: const Size(480, 640),
       builder: () => MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

@@ -17,9 +17,9 @@ class UIHelper {
 
   static EdgeInsets getDefaultIconPadding() {
     if (ScreenUtil().orientation == Orientation.portrait) {
-      return EdgeInsets.all(12.h);
+      return EdgeInsets.all(10.h);
     } else {
-      return EdgeInsets.all(8.w);
+      return EdgeInsets.all(4.w);
     }
   }
 
@@ -27,7 +27,7 @@ class UIHelper {
     if (ScreenUtil().orientation == Orientation.portrait) {
       return 0.2.sw;
     } else {
-      return 0.2.sh;
+      return 0.3.sh;
     }
   }
 
